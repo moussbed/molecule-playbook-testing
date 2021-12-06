@@ -4,16 +4,16 @@ dependency:
 driver:
   name: docker
 lint: |
-  set -e 
+  set -e
   yamllint .
-  ansible-lint  
+  ansible-lint
 platforms:
   - name: instance
     image: geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest
     command: ""
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true  
+    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
